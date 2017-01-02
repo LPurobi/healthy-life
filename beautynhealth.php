@@ -11,7 +11,7 @@
       die("Connection failed: " . $conn->connect_error);
   }
 
-  $sql = "SELECT * FROM posts";
+  $sql = "SELECT * FROM posts WHERE category = 'beauty-and-health'";
   $result = $conn->query($sql);
 
   $rows = [];
@@ -48,14 +48,16 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/first">Home</a></li>
-                <li><a href="medical.php">Medical</a></li>
-                <li><a href="lifestyle.php">Lifestyle</a></li>
-                <li><a href="foodnnutrition.php">Food & Nutrition</a></li>
-                <li><a href="beautynhealth.php">Beauty & Health</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span></a>
+              <li><a href="/first">Home</a></li>
+              <li><a href="medical.php">Medical</a></li>
+              <li><a href="lifestyle.php">Lifestyle</a></li>
+              <li><a href="foodnnutrition.php">Food & Nutrition</a></li>
+              <li><a href="beautynhealth.php">Beauty & Health</a></li>
+              <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">FAQ</a></li>
