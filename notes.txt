@@ -1,0 +1,9 @@
+Create table posts
+Add columns: title-string contents-text created_at:datetime user_id:integer -- all should be not null constrants
+
+Create table users
+Add columns: name-string/varchar- not null constraints, email address-string/varchar - unique, not null constraints
+
+Database connect.
+
+Fetch posts from database.- select * from posts;

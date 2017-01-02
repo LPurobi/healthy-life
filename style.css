@@ -1,0 +1,32 @@
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 0px; 
+    border: 1px solid transparent;
+}
+
+.carousel-inner>.item>img {
+    line-height: 1;
+    width: 100%;
+}
+
+img{
+	width: 100%;
+	margin-top: 20px;
+}
+.complete {
+    display: none;
+}
+.see-less {
+    display: none;
+}
+.see-more, .see-less {
+    cursor: pointer;
+    color: dodgerblue;
+}
+.navbar-nav li:hover {
+    background: #2b739d;
+}
+.navbar-nav a:hover {
+    color: #fff !important;
+}
