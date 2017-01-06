@@ -24,8 +24,6 @@
                 <li><a href="beautynhealth.php">Beauty & Health</a></li>
 				<li><a href="submit_post.php">Submit Post</a></li>
 
-
-
                 <li>
                     <form class="navbar-form navbar-left">
                         <div class="form-group">

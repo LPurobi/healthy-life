@@ -1,3 +1,5 @@
+<?php include '_db_connect.php' ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,71 +12,34 @@
 <body>
 <!-- navbar -->
 
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="home.html">Healthy Life</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="medical.html">Medical</a></li>
-                <li><a href="lifestyle.html">Lifestyle</a></li>
-                <li><a href="foodnnutrition.html">Food & Nutrition</a></li>
-                <li><a href="beautynhealth.html">Beauty & Health</a></li>
-				<li><a href="submit_post.html">Submit Post</a></li> 
-                
-                
-                <li>
-                    <form class="navbar-form navbar-left">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
-                </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
+<?= include '_navbar.php' ?>
 <!-- end navbar -->
 <!-- content -->
 <div class="container">
  <div class="row">
 <div class="col-md-6">
-		
+
             <img src="https://s-media-cache-ak0.pinimg.com/originals/30/68/3f/30683fef73771df4c55f67cffc9c1fac.png" height="341" width="555">
-            
+
 			<a href="Home_remedy.html"><h1>Natural & Home Remedy</h1> </a>
             <p>A home remedy is a treatment to cure a disease or ailment that employs certain spices, vegetables, or other common items. Home remedies may or may not have medicinal properties that treat or cure the disease or ailment in question, as they are typically passed along by laypersons.Home remedies have become increasingly popular as the expense and hassle of conventional medicine continues to rise. Beyond the convenience, home remedies have found favor with a public that wants to take a more holistic approach to its ailments.</p>
-       
+
 		</div>
 		 <div class="col-md-6">
             <img src="http://francesquinn.co.uk/wp-content/uploads/2013/08/Edible-First-Aid-Kit-.jpg"  height="341" width="555">
            <a href="First Aid 1.html"> <h1>First Aid</h1></a>
             <p>Some self-limiting illnesses or minor injuries may only require first aid intervention, and no further treatment. First aid generally consists of some simple, often life-saving techniques that most people can be trained to perform with minimal equipment.First aid usually refers to administration of care to a human, although it can also be done on animals. The aim of first aid is to prevent a deterioration of the patient's situation, to aid recovery, and to preserve life.Technically, it is not classed as medical treatment and should not be compared to what a trained medical professional might do. First aid is a combination of some simple procedures, plus the application of common sense</p>
         </div>
- 
-   
+
+
         <div class="col-md-6">
             <img src="http://a.patient.media/gfx/category-images/brain-nerves-neuroligy.jpg"  height="341" width="555">
             <a href="Healthy Nerves 1.html"><h1>Healthy Nerves</h1></a>
             <p>Think of all the jobs the nervous system must perform. Every activity of life, from the respiration of a single cell, to a gross motor function such as piloting an aircraft, is controlled by the nerves.
 Yet nutrition as it applies to the nerves is a sadly neglected affair. Any schoolchild knows he needs plenty of protein for muscle, vitamin C for healthy gums, and calcium for strong bones. But ask him what foods are good for his nerves and chances are he doesn't know. Fortunately, the fats, proteins, and vitamins that are needed for healthy nerve tissue are fairly abundant in the diet. However, one nutrient that recent research has found to be lacking in the diets of most people, and which lack may be the cause, of so much nervous illness, is magnesium. Information on, the essentiality of magnesium to the nerves was published by Penn and Loewenstein of Columbia University in Science (January, 1966), and will be discussed in a later chapter. Taking advantage of new advances in electronic measuring techniques, the scientists studied the electrical conduction of currents by the nerves. Their most important finding was that while calcium is the prime conductor of these minute electrical currents, it is magnesium that maintains normal levels of calcium in the system.</p>
         </div>
-		
-		
+
+
         <div class="col-md-6">
             <img src="http://www.ideafit.com/files/ChoosingASmallGroup800x400.jpg" height="341" width="555">
              <a href="Fitness 1.html"><h1>Fitness</h1></a>
@@ -83,7 +48,7 @@ Yet nutrition as it applies to the nerves is a sadly neglected affair. Any schoo
 The researchers used a type of magnetic resonance imaging (MRI) to look at five different white matter tracts in the brains of two dozen 9- and 10-year-olds, half of whom were more physically fit and half were less fit. White matter also works to carry nerve signals between different parts of the brain, and all of the tracts examined have been associated with attention and memory, the study says.</p>
         </div>
     </div>
-    
+
         <div class="col-md-6">
             <img src="http://www.naturalnews.com/gallery/640/Concepts/Immune-Body-Disease-Bacteria.jpg" height="360" width="555">
              <a href="Immune System 1.html"><h1>Immune System</h1> </a>
@@ -123,7 +88,7 @@ The difference between "stress" and "a stressor" - a stressor is an agent or sti
     <li><a href="lifestyle.html">2</a></li>
     <li><a href="foodnnutrition.html">3</a></li>
     <li><a href="beautynhealth.html">4</a></li>
-    
+
     <li>
       <a href="foodnnutrition.html" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>

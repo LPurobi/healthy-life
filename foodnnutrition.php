@@ -1,3 +1,5 @@
+<?php include '_db_connect.php' ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,44 +11,7 @@
 </head>
 <body>
 <!-- navbar -->
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="home.html">Healthy Life</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="medical.html">Medical</a></li>
-                <li><a href="lifestyle.html">Lifestyle</a></li>
-                <li><a href="foodnnutrition.html">Food & Nutrition</a></li>
-                <li><a href="beautynhealth.html">Beauty & Health</a></li>
-				<li><a href="submit_post.html">Submit Post</a></li> 
-                
-               
-                <li>
-                    <form class="navbar-form navbar-left">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
-                </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
+<?= include '_navbar.php' ?>
 <!-- end navbar -->
 <!-- content -->
 <div class="container">
@@ -91,7 +56,7 @@ Choices about nourishment are very much linked to other human beings and other l
     <div class="col-md-8">
 
        <a href="Sports Nutrition 1.html"><h1>Sports Nutrition</h1></a>
-      <p>Whether you are a bodybuilder, a professional athlete or simply exercising to improve your health, sports nutrition plays a key role in optimising the beneficial effects of physical activity. Making better decisions with your nutrition and hydration can result in improved performance, recovery and injury prevention. 
+      <p>Whether you are a bodybuilder, a professional athlete or simply exercising to improve your health, sports nutrition plays a key role in optimising the beneficial effects of physical activity. Making better decisions with your nutrition and hydration can result in improved performance, recovery and injury prevention.
 Nutrition professionals offer a range of services to support your health and sporting goals. This can range from a daily food diary, to a comprehensive food and nutrition plan for training and competitions. On this page well will explore the importance of sports nutrition and how a sports nutritionist can support your training regime. We will also cover the nutrients and supplements that are frequently included in an athlete’s dietary program.Consuming the right balance of food and drink is important for everyone. Yet those actively participating in sport on a regular basis need to be aware that it can also affect their performance. Athletes, for example, may need more calories than the average person. So if you’re an athlete, or simply someone who’s made the decision to start exercising on a regular basis, you shouldn’t let a good nutrition plan fall down on your list of priorities.</p>
     </div>
   </div>
@@ -125,7 +90,7 @@ If your activity requires you to work even harder, it is called vigorous intensi
     <li><a href="lifestyle.html">2</a></li>
     <li><a href="#">3</a></li>
     <li><a href="beautynhealth.html">4</a></li>
-    
+
     <li>
       <a href="beautynhealth.html" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>

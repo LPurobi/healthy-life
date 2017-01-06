@@ -1,3 +1,5 @@
+<?php include '_db_connect.php' ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,74 +11,36 @@
 </head>
 <body>
 <!-- navbar -->
-
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="home.html">Healthy Life</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="medical.html">Medical</a></li>
-                <li><a href="lifestyle.html">Lifestyle</a></li>
-                <li><a href="foodnnutrition.html">Food & Nutrition</a></li>
-                <li><a href="beautynhealth.html">Beauty & Health</a></li>
-				<li><a href="submit_post.html">Submit Post</a></li> 
-              
-               
-                <li>
-                    <form class="navbar-form navbar-left">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
-                </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
+<?= include '_navbar.php' ?>
 <!-- end navbar -->
 <!-- content -->
-<div class="container">	
+<div class="container">
     <div class="row">
       <div class="row">
 	   <div class="col-md-4">
-	   
+
             <img src="http://beyondskinocala.com/wp-content/uploads/2015/03/skin-care-3.jpg"height="241"width="360">
           <a href="skin care 1.html">  <h1>Skin Care</h1></a>
             <p>Everybody wants to feel good about the way that they look,but it seems there is no shortage of ailments out there determined to tear down your self-esteem. Whether fighting acne, dandruff, or anything in between, society is engaged in an all-out beauty battle. While there is an endless array of products out there that target our insecurities, a lot of them don't deliver the desired results. Rather than frantically searching for a miracle cure, make sure you are not fretting too much over the little things (nobody else can see the red speck on the upper left corner of your nostril, truly) and be smart about the way you treat yourself. Resorting to unhealthy measures or chemical-laden creams isn't always the best route to go. When all is said and done, being healthy is what gives you the ultimate glow.
 			</p>
         </div>
-		
+
 		 <div class="col-md-4">
-		
+
             <img src="http://efamilyportal.com/wp-content/uploads/2015/09/Hair-Care1.jpg"height="240"width="360">
              <a href="hair care 1.html"><h1>Hair Care</h1></a>
 			<p>Many of us follow a strict beauty regimen to keep our skin, hair and nails in good health. In fact, people all over the world spend millions of dollars to enjoy beautiful skin, superb hair and strong nails.When it comes to beauty, importance should be given to natural ingredients rather than commercial beauty products. Chemicals and toxins in commercial products can do a lot of harm in the long run.There are many natural ingredients in your kitchen that shouldn’t be underestimated.</p>
         </div>
         <div class="col-md-4">
-		 
+
             <img src="http://trinityhealth.org/assets/img/sections/VisionGalleria/EyeGirl2.png" height="240"width="345">
            <a href="eye care 1.html"> <h1>Eye Care</h1></a>
             <p>Eyes are one of the most important channels we use to gather information and make sense of the world around us. We also use our eyes to express how we feel knowingly or unwittingly in a way that is often more powerful than spoken words.Despite of the importance of our eyes, they often receive little attention from us.But without proper care,our eyes can quickly deteriorate with age, developing eye diseases that can greatly affect our quality of life.It is never too late to start. Pick up some tips from this article and start cultivating some good eye care habits and practices to improve your ocular health today</p>
         </div>
-       
-       
+
+
     </div>
-	
+
         <div class="col-md-4">
             <img src="https://www.jameda.de/_images/_uploads/artikelbilder/big/bild1438156017405.jpg"height="240"width="360">
            <a href="dental care1.html"> <h1>Dental Care</h1></a>
@@ -115,8 +79,8 @@
     <li><a href="lifestyle.html">2</a></li>
     <li><a href="foodnnutrition.html">3</a></li>
     <li><a href="#">4</a></li>
-    
-    
+
+
   </ul></div>
 </nav>
 <!-- end content  -->
