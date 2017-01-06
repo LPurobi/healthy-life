@@ -22,9 +22,8 @@
                 <li><a href="lifestyle.php">Lifestyle</a></li>
                 <li><a href="foodnnutrition.php">Food & Nutrition</a></li>
                 <li><a href="beautynhealth.php">Beauty & Health</a></li>
-				<li><a href="submit_post.php">Submit Post</a></li>
+                <li><a href="submit_post.php">Submit post</a></li>
 
-                <li>
                     <form class="navbar-form navbar-left">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Search">
