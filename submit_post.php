@@ -31,22 +31,22 @@
                       <input type="email" name="email"
                      placeholder="Email" class="form-control">
                     </div>
-                    <div class='input-group date' id='datetimepicker1'>
-                      <label for="Date">Date:</label>
-                      <input type='text' class="form-control" name="update_time" placeholder="Date"/>
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
-                    <script type="text/javascript">
-                        var j = jQuery.noConflict();
-                        j(function () {
-                            j('#datetimepicker1').datetimepicker({
-                                format: 'L',
-                                disabledHours: true,
-                            });
-                        });
-                    </script>
+
+                    <div class='input-group date'>
+                      <label for=" Date"> Date:</label>
+                       <input type="date" name="Date:">
+                     </div>
+
+                    <div class="form-group">
+                      <label for="sel1">Category:</label>
+                      <select class="form-control" id="sel1">
+                        <option></option>
+                        <option>medical</option>
+                        <option>lifestyle</option>
+                        <option>food & nutrition</option>
+                        <option>beauty & health</option>
+                      </select>
+                      </div>
 
                     <div class="form-group">
                       <label for="Title">Title:</label>
@@ -54,7 +54,7 @@
                       id="Title" placeholder="Title" class="form-control">
                     </div>
 
-                    <div class="form-group">
+                  <div class="form-group">
                       <label for="content">Content:</label>
                       <textarea name="content" id="message" class="form-control" rows='10'> </textarea>
                     </div>
