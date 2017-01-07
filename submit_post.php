@@ -1,4 +1,4 @@
-<?php include '_db_connect.php' ?>
+ <?php include '_db_connect.php' ?>
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,10 @@
 <?= include '_navbar.php' ?>
 <!-- end navbar -->
           <!-- content -->
-            <div class="container" style="background-image: url('http://cdn.mysitemyway.com/etc-mysitemyway/backgrounds/legacy-previews/backgrounds/sequenced-circles/sequenced-circles-003465-light-sky-blue.jpg');">
+          <div class="container">
+           <h2 class="text-center">Submit Post:</h2>
+         </div>
+          <div class="container" style="background-image: url('http://cdn.mysitemyway.com/etc-mysitemyway/backgrounds/legacy-previews/backgrounds/sequenced-circles/sequenced-circles-003465-light-sky-blue.jpg');">
               <div class="row">
                 <div class="col-sm-offset-1 col-sm-10 submit_post">
                   <form action="submitpost.php" method="post">
@@ -49,6 +52,11 @@
                       <input type="text" name="title"
                       id="Title" placeholder="Title" class="form-control">
                     </div>
+
+                  <div class="form-group">
+                    <label for="post_image_url">Post Image Url:</label>
+                    <input type="text" name="post_image_url" id="post_image_url" placeholder="Post Image Url" class="form-control">
+                  </div>
 
                   <div class="form-group">
                       <label for="content">Content:</label>
