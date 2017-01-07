@@ -22,6 +22,13 @@
                 <li><a href="lifestyle.php">Lifestyle</a></li>
                 <li><a href="foodnnutrition.php">Food & Nutrition</a></li>
                 <li><a href="beautynhealth.php">Beauty & Health</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="admin_login.php">Log in</a></li>
+                        <li><a href="admin_content_selection.php">Content</a></li>
+                    </ul>
+                </li>
                 <li><a href="submit_post.php">Submit post</a></li>
 
                     <form class="navbar-form navbar-left">

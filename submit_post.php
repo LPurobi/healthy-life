@@ -15,12 +15,9 @@
 <!-- end navbar -->
           <!-- content -->
             <div class="container" style="background-image: url('http://cdn.mysitemyway.com/etc-mysitemyway/backgrounds/legacy-previews/backgrounds/sequenced-circles/sequenced-circles-003465-light-sky-blue.jpg');">
-
               <div class="row">
                 <div class="col-sm-offset-1 col-sm-10 submit_post">
-                  <h1> Submit Post: </h1>
-                  <form action="20.submitpost.php"
-    method="post">
+                  <form action="submitpost.php" method="post">
                     <div class="form-group">
                       <label for="name">Name:</label>
                       <input type="text" name="name"
@@ -28,29 +25,28 @@
                     </div>
                     <div class="form-group">
                       <label for="email">Email:</label>
-                      <input type="email" name="email"
-                     placeholder="Email" class="form-control">
+                      <input type="email" name="email" placeholder="Email" class="form-control">
                     </div>
 
-                    <div class='input-group date'>
+                    <div class='form-group date'>
                       <label for=" Date"> Date:</label>
-                       <input type="date" name="Date:">
+                       <input type="date" name="published_at"  class="form-control">
                      </div>
 
                     <div class="form-group">
                       <label for="sel1">Category:</label>
-                      <select class="form-control" id="sel1">
+                      <select class="form-control" id="sel1" name="category">
                         <option></option>
-                        <option>medical</option>
-                        <option>lifestyle</option>
-                        <option>food & nutrition</option>
-                        <option>beauty & health</option>
+                        <option value = "medical">Medical</option>
+                        <option value = "lifestyle">Lifestyle</option>
+                        <option value = "food-and-nutrition">Food & Nutrition</option>
+                        <option value = "beauty-and-health">Beauty & Health</option>
                       </select>
                       </div>
 
                     <div class="form-group">
                       <label for="Title">Title:</label>
-                      <input type="text" name="Title"
+                      <input type="text" name="title"
                       id="Title" placeholder="Title" class="form-control">
                     </div>
 
@@ -60,8 +56,6 @@
                     </div>
                     <input type="submit" name="submit" class="btn btn-success btn-lg"
                     value="Submit">
-
-
                 </form>
               </div>
             </div>
