@@ -14,14 +14,13 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="home.php">Home</a></li>
                 <li><a href="medical.php">Medical</a></li>
                 <li><a href="lifestyle.php">Lifestyle</a></li>
                 <li><a href="foodnnutrition.php">Food & Nutrition</a></li>
                 <li><a href="beautynhealth.php">Beauty & Health</a></li>
+                <li><a href="submit_post.php">Submit post</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -29,8 +28,6 @@
                         <li><a href="admin_content_selection.php">Content</a></li>
                     </ul>
                 </li>
-                <li><a href="submit_post.php">Submit post</a></li>
-
                     <form class="navbar-form navbar-left">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Search">

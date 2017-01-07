@@ -1,7 +1,14 @@
 <?php include '_db_connect.php' ?>
 <?php
-$sql = "SELECT * FROM posts";
+$sql = "SELECT * FROM posts WHERE approved = 0";
 $result = $conn->query($sql);
+$data = [];
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        $data[] = $row;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,11 +22,9 @@ $result = $conn->query($sql);
 <script type="text/javascript"></script>
 <script type="text/javascript" src="jconfirmaction.jquery.js"></script>
 <script type="text/javascript">
-
 	$(document).ready(function() {
 		$('.ask').jConfirmAction();
 	});
-
 </script>
 
 <script language="javascript" type="text/javascript" src="niceforms.js"></script>
@@ -28,12 +33,12 @@ $result = $conn->query($sql);
 </head>
 <body>
 	<!-- navbar -->
-<?= include '_navbar.php' ?>
+<?= include '_navbar.php'; ?>
 	<!-- end navbar -->
 <div id="main_container">
     <div class="right_content">
-
     <h2>Content selection panel for Admin: </h2>
+    <form action="approve_by_admin.php" method="post">
 
 <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
     <thead>
@@ -45,34 +50,41 @@ $result = $conn->query($sql);
             <th scope="col" class="rounded">Date</th>
 						<th scope="col" class="rounded">Title</th>
 						<th scope="col" class="rounded">Content</th>
-            <th scope="col" class="rounded">Edit</th>
-            <th scope="col" class="rounded-q4">Delete</th>
         </tr>
     </thead>
         <tfoot>
     	<tr>
-        	<td colspan="8" class="rounded-foot-left"></td>
+        	<td colspan="6" class="rounded-foot-left"></td>
         	<td class="rounded-foot-right">&nbsp;</td>
-
         </tr>
     </tfoot>
     <tbody>
+			<?php foreach ($data as $row): ?>
     	<tr>
-        	<td><input type="checkbox" name="" /></td>
-            <td>Purobi Rahman</td>
-            <td>purobi@live.com</td>
-            <td>lifestyle</td>
-            <td>12/05/2010</td>
-						<td>First Aid</td>
-	         	<td>Some self-limiting illnesses(...)</td>
-						<td><a href="#"><img src="admin images/user_edit.png" alt="" title="" border="0" /></a></td>
-            <td><a href="#" class="ask"><img src="admin images/trash.png" alt="" title="" border="0" /></a></td>
+        	<td><input type="checkbox" name="posts[]" value=<?= $row['id'] ?> /></td>
+            <td><?= $row['user_name'] ?></td>
+            <td><?= $row['user_email'] ?></td>
+            <td><?= $row['category'] ?></td>
+            <td><?= $row['published_at'] ?></td>
+						<td><?= $row['title'] ?></td>
+	         	<td><?= mb_strimwidth($row['contents'], 0, 100) ?></td>
         </tr>
+			<?php endforeach;?>
+      <tr>
+        <td>Action:</td>
+        <td>&nbsp;</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <button type="submit" name="approve" class="btn btn-success btn-md pull-right">Approve</button>
+        </td>
+        <td>
+        <button type="submit" name="delete" class="btn btn-danger btn-md pull-right">Delete</button>
+      </td>
+      </tr>
     </tbody>
 </table>
-	 <a href="#" class="bt_green"><span class="bt_green_lft"></span><strong>Add new content</strong><span class="bt_green_r"></span></a>
-     <a href="#" class="bt_blue"><span class="bt_blue_left"></span><strong>View all content from category</strong><span class="bt_blue_r"></span></a>
-     <a href="#" class="bt_red"><span class="bt_red_lft"></span><strong>Delete Contents</strong><span class="bt_red_r"></span></a>
-     </div>
+   </form>
 </div>
 </html>
