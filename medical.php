@@ -1,4 +1,4 @@
-<? require_once('_db_connect.php') ?>
+<?php include '_db_connect.php' ?>
 
 <!DOCTYPE html>
 <html>
@@ -11,50 +11,7 @@
 </head>
 <body>
 <!-- navbar -->
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Healthy Life</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="medical.html">Medical</a></li>
-                <li><a href="lifestyle.html">Lifestyle</a></li>
-                <li><a href="foodnnutrition.html">Food & Nutrition</a></li>
-                <li><a href="beautynhealth.html">Beauty & Health</a></li>
-                <li><a href="more.html">More</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <form class="navbar-form navbar-left">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
-                </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
+<?= include '_navbar.php' ?>
 <!-- end navbar -->
 <!-- slider -->
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -67,14 +24,13 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img src="http://www.medindia.net/images/common/yoga/950_400/yoga.jpg" width="1380"  alt="...">
+            <img src="allergy.jpg" alt="...">
         </div>
         <div class="item ">
-
-			<img src="http://maranathasda.org/wp-content/uploads/2012/04/fruits-and-vegetables.jpg" width="1380"  alt="...">
+            <img src="asthma.jpg" alt="...">
         </div>
         <div class="item ">
-            <img src="https://homepage-inlifepharmapvtl.netdna-ssl.com/wp-content/uploads/2014/11/Benefits-of-Drinking-Water.png" width="1260" alt="...">
+            <img src="stop_cancer.jpg" alt="...">
         </div>
 
     </div>
@@ -176,10 +132,36 @@
         </div>
         <div class="col-md-3">
             <h1>AIDS</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled </p>
-        </div>
+
+       <p class="teaser">
+                The food you eat can decrease your risk of heart disease and stroke. Choose foods low in saturated fat, trans fat, and sodium.  As part of a healthy diet, eat plenty of fruits and vegetables, fiber-rich whole grains, fish (preferably oily fish-at least twice per week), nuts, legumes and seeds and try eating some meals without meat.  Select lower fat dairy products and poultry (skinless).  Limit sugar-sweetened beverages...
+            </p>
+            <span class="see-more">See more</span>
+            <p class="complete"> The food you eat can decrease your risk of heart disease and stroke. Choose foods low in saturated fat, trans fat, and sodium.  As part of a healthy diet, eat plenty of fruits and vegetables, fiber-rich whole grains, fish (preferably oily fish-at least twice per week), nuts, legumes and seeds and try eating some meals without meat.  Select lower fat dairy products and poultry (skinless).  Limit sugar-sweetened beverages and red meat. If you choose to eat meat, select the leanest cuts available.</p>
+            <span class="see-less">See less</span> </div>
     </div>
 </div>
+
+<nav aria-label="Page navigation" ><div class="text-center">
+  <ul class="pagination" >
+    <li>
+      <a href="home.html" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="lifestyle.html">2</a></li>
+    <li><a href="foodnnutrition.html">3</a></li>
+    <li><a href="beautynhealth.html">4</a></li>
+
+    <li>
+      <a href="lifestyle.html" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul></div>
+</nav>
+
 <!-- end content -->
 <!-- footer -->
 <div class="container">
@@ -217,5 +199,3 @@
 <script src="./script.js"></script>
 </body>
 </html>
-
-<?= DB_SERVER; ?>
