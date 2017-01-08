@@ -28,9 +28,9 @@
                         <li><a href="admin_content_selection.php">Content</a></li>
                     </ul>
                 </li>
-                    <form class="navbar-form navbar-left">
+                    <form class="navbar-form navbar-left" method="get">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
+                            <input type="text" name='query' value="<?= isset($_GET['query']) ? $_GET['query'] : '' ?>" class="form-control" placeholder="Search">
                         </div>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
