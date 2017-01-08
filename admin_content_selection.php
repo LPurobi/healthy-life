@@ -49,6 +49,7 @@ if ($result->num_rows > 0) {
             <th scope="col" class="rounded">Category</th>
             <th scope="col" class="rounded">Date</th>
 						<th scope="col" class="rounded">Title</th>
+            <th scope="col" class="rounded">Image-url</th>
 						<th scope="col" class="rounded">Content</th>
         </tr>
     </thead>
@@ -67,6 +68,7 @@ if ($result->num_rows > 0) {
             <td><?= $row['category'] ?></td>
             <td><?= $row['published_at'] ?></td>
 						<td><?= $row['title'] ?></td>
+            <td><?= $row['post_image_url'] ?></td>
 	         	<td><?= mb_strimwidth($row['contents'], 0, 100) ?></td>
         </tr>
 			<?php endforeach;?>
