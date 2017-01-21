@@ -44,28 +44,31 @@ while($row = mysqli_fetch_array($result)) {
     </div>
   </div>
 <?php endforeach; ?>
-
 </div>
-<nav aria-label="Page navigation" ><div class="text-center">
-  <ul class="pagination" >
-    <li>
-      <a href="lifestyle.php" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="medical.php">1</a></li>
-    <li><a href="lifestyle.php">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="beautynhealth.php">4</a></li>
-
-    <li>
+<!-- end content  -->
+<!--pagination -->
+<nav aria-label="Page navigation" >
+  <div class="text-center">
+    <ul class="pagination" >
+      <li>
+        <a href="lifestyle.php" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li><a href="?page=1">1</a></li>
+      <li><a href="?page=2">2</a></li>
+      <li><a href="?page=3">3</a></li>
+      <li><a href="?page=4">4</a></li>
+      <li>
       <a href="beautynhealth.php" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
-    </li>
-  </ul></div>
+      </li>
+    </ul>
+  </div>
 </nav>
-<!-- end content  -->
+<!-- end pagination -->
+
 <!-- footer -->
 <div class="container">
 	<div class="row">

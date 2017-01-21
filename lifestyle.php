@@ -48,6 +48,8 @@ $post_groups = array_chunk($rows, 2);
       <?php endforeach; ?>
     </div>
   </div>
+    <!-- end content  -->
+    <!-- pagination  -->
   <nav aria-label="Page navigation" >
     <div class="text-center">
     <ul class="pagination" >
@@ -69,7 +71,7 @@ $post_groups = array_chunk($rows, 2);
     </ul>
   </div>
   </nav>
-  <!-- end content  -->
+  <!-- end pagination  -->
   <!-- footer -->
   <div class="container">
     <div class="row">

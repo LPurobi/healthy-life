@@ -29,3 +29,7 @@ img{
 .navbar-nav a:hover {
     color: #fff !important;
 }
+
+.sideBar{
+  border: 2px solid red;
+}

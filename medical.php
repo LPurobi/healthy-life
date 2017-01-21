@@ -1,7 +1,7 @@
 <?php include '_db_connect.php' ?>
 
 <?php
-$limit = isset($_GET['limit']) ? $_GET['limit'] : 8;
+$limit = isset($_GET['limit']) ? $_GET['limit'] : 6;
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $offset = ($page - 1);
 
@@ -9,7 +9,7 @@ if(isset($_GET['query'])) {
   $page_count_sql = "SELECT * FROM posts WHERE category = 'medical' AND (title LIKE '%{$_GET['query']}%' OR contents LIKE '%{$_GET['query']}%')";
   $sql = "SELECT * FROM posts WHERE category = 'medical' AND (title LIKE '%{$_GET['query']}%' OR contents LIKE '%{$_GET['query']}%') LIMIT {$limit} OFFSET {$offset}";
 } else {
-  $page_count_sql = "SELECT * FROM posts WHERE category = 'medical' AND (title LIKE '%{$_GET['query']}%' OR contents LIKE '%{$_GET['query']}%')";
+  $page_count_sql = "SELECT * FROM posts WHERE category = 'medical'";
   $sql = "SELECT * FROM posts WHERE category = 'medical' LIMIT {$limit} OFFSET {$offset}";
 }
 
@@ -73,18 +73,31 @@ $post_groups = array_chunk($rows, 4);
 <!-- end slider -->
 <!-- content -->
 <div class="container">
-  <?php foreach($post_groups as $posts) : ?>
-     <div class="row">
-       <?php foreach($posts as $post) : ?>
-            <div class="col-md-3">
-            <h1><a href="show.php?id=<?= $post['id'] ?>"><?= $post['title']; ?></a></h1>
-            <p class="teaser">
-                <?= mb_strimwidth($post['contents'], 0, 250, '...'); ?>
-            </p>
-      </div>
+  <div class="row">
+    <div class="col-md-3">
+       <div class="sideBar">
+          <h1>Recent Post</h1>
+          <ul>
+            <li><a href="#">How ride bike</a></li>
+            <li><a href="#">How make tea</a></li>
+          </ul>
+       </div>
+    </div>
+    <div class="col-md-9">
+      <?php foreach($post_groups as $posts) : ?>
+         <div class="row">
+           <?php foreach($posts as $post) : ?>
+                <div class="col-md-3">
+                <h1><a href="show.php?id=<?= $post['id'] ?>"><?= $post['title']; ?></a></h1>
+                <p class="teaser">
+                    <?= mb_strimwidth($post['contents'], 0, 250, '...'); ?>
+                </p>
+          </div>
+          <?php endforeach; ?>
+        </div>
       <?php endforeach; ?>
     </div>
-  <?php endforeach; ?>
+  </div>
 </div>
 <!-- end content -->
 <!--pagination -->
@@ -96,10 +109,10 @@ $post_groups = array_chunk($rows, 4);
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li><a href="medical.php">1</a></li>
-    <li><a href="lifestyle.php">2</a></li>
-    <li><a href="foodnnutrition.php">3</a></li>
-    <li><a href="beautynhealth.php">4</a></li>
+    <li><a href="?page=1">1</a></li>
+    <li><a href="?page=2">2</a></li>
+    <li><a href="?page=3">3</a></li>
+    <li><a href="?page=4">4</a></li>
 
     <li>
       <a href="lifestyle.php" aria-label="Next">

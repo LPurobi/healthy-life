@@ -9,7 +9,7 @@ if(isset($_GET['query'])) {
   $page_count_sql = "SELECT * FROM posts WHERE category = 'beauty-and-health' AND (title LIKE '%{$_GET['query']}%' OR contents LIKE '%{$_GET['query']}%')";
   $sql = "SELECT * FROM posts WHERE category = 'beauty-and-health' AND (title LIKE '%{$_GET['query']}%' OR contents LIKE '%{$_GET['query']}%') LIMIT {$limit} OFFSET {$offset}";
 } else {
-    $page_count_sql = "SELECT * FROM posts WHERE category = 'beauty-and-health';
+    $page_count_sql = "SELECT * FROM posts WHERE category = 'beauty-and-health'";
 $sql = "SELECT * FROM posts WHERE category = 'beauty-and-health' LIMIT {$limit} OFFSET {$offset}";
 }
 $result = $conn->query($sql);
@@ -46,22 +46,26 @@ $post_groups = array_chunk($rows, 3);
   </div>
 <?php endforeach; ?>
 </div>
-<nav aria-label="Page navigation" ><div class="text-center">
+<!--end content -->
+<!--pagination -->
+<nav aria-label="Page navigation" >
+  <div class="text-center">
   <ul class="pagination" >
     <li>
       <a href="foodnnutrition.php" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li><a href="medical.php">1</a></li>
-    <li><a href="lifestyle.php">2</a></li>
-    <li><a href="foodnnutrition.php">3</a></li>
-    <li><a href="#">4</a></li>
+    <li><a href="?page=1">1</a></li>
+    <li><a href="?page=2">2</a></li>
+    <li><a href="?page=3">3</a></li>
+    <li><a href="?page=4">4</a></li>
 
 
-  </ul></div>
+    </ul>
+  </div>
 </nav>
-<!-- end content  -->
+<!-- end pagination  -->
 <!-- footer -->
 <div class="container">
   <div class="row">
