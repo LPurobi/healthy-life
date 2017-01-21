@@ -1,12 +1,23 @@
 <?php include '_db_connect.php' ?>
 
 <?php
+$limit = isset($_GET['limit']) ? $_GET['limit'] : 8;
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$offset = ($page - 1);
+
 if(isset($_GET['query'])) {
-  $sql = "SELECT * FROM posts WHERE category = 'medical' AND (title LIKE '%{$_GET['query']}%' OR contents LIKE '%{$_GET['query']}%')";
+  $page_count_sql = "SELECT * FROM posts WHERE category = 'medical' AND (title LIKE '%{$_GET['query']}%' OR contents LIKE '%{$_GET['query']}%')";
+  $sql = "SELECT * FROM posts WHERE category = 'medical' AND (title LIKE '%{$_GET['query']}%' OR contents LIKE '%{$_GET['query']}%') LIMIT {$limit} OFFSET {$offset}";
 } else {
-  $sql = "SELECT * FROM posts WHERE category = 'medical'";
+  $page_count_sql = "SELECT * FROM posts WHERE category = 'medical' AND (title LIKE '%{$_GET['query']}%' OR contents LIKE '%{$_GET['query']}%')";
+  $sql = "SELECT * FROM posts WHERE category = 'medical' LIMIT {$limit} OFFSET {$offset}";
 }
+
+$counter = $conn->query($page_count_sql);
+$totalPage = $counter->num_rows/$limit;
+
 $result = $conn->query($sql);
+
 $rows = [];
 while($row = mysqli_fetch_array($result)) {
     $rows[] = $row;
@@ -65,21 +76,40 @@ $post_groups = array_chunk($rows, 4);
   <?php foreach($post_groups as $posts) : ?>
      <div class="row">
        <?php foreach($posts as $post) : ?>
-        <div class="col-md-3">
-            <h1><?= $post['title']; ?></h1>
+            <div class="col-md-3">
+            <h1><a href="show.php?id=<?= $post['id'] ?>"><?= $post['title']; ?></a></h1>
             <p class="teaser">
                 <?= mb_strimwidth($post['contents'], 0, 250, '...'); ?>
             </p>
-            <span class="see-more">See more</span>
-            <p class="complete">
-<?= $post['contents']; ?>
-            </p><span class="see-less">See less</span>
-        </div>
+      </div>
       <?php endforeach; ?>
     </div>
   <?php endforeach; ?>
 </div>
 <!-- end content -->
+<!--pagination -->
+<nav aria-label="Page navigation" >
+  <div class="text-center">
+  <ul class="pagination" >
+    <li>
+      <a href="home.php" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="medical.php">1</a></li>
+    <li><a href="lifestyle.php">2</a></li>
+    <li><a href="foodnnutrition.php">3</a></li>
+    <li><a href="beautynhealth.php">4</a></li>
+
+    <li>
+      <a href="lifestyle.php" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</div>
+</nav>
+<!-- end pagination -->
 <!-- footer -->
 <div class="container">
     <div class="row">

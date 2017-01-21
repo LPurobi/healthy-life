@@ -1,10 +1,16 @@
 <?php include '_db_connect.php' ?>
 
 <?php
+$limit = isset($_GET['limit']) ? $_GET['limit'] : 6;
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$offset = ($page - 1);
+
 if(isset($_GET['query'])) {
-  $sql = "SELECT * FROM posts WHERE category = 'food-and-nutrition' AND (title LIKE '%{$_GET['query']}%' OR contents LIKE '%{$_GET['query']}%')";
+  $page_count_sql = "SELECT * FROM posts WHERE category = 'food-and-nutrition' AND (title LIKE '%{$_GET['query']}%' OR contents LIKE '%{$_GET['query']}%')";
+  $sql = "SELECT * FROM posts WHERE category = 'food-and-nutrition' AND (title LIKE '%{$_GET['query']}%' OR contents LIKE '%{$_GET['query']}%') LIMIT {$limit} OFFSET {$offset}";
 } else {
-$sql = "SELECT * FROM posts WHERE category = 'food-and-nutrition'";
+    $page_count_sql = "SELECT * FROM posts WHERE category = 'food-and-nutrition'";
+    $sql = "SELECT * FROM posts WHERE category = 'food-and-nutrition' LIMIT {$limit} OFFSET {$offset}";
 }
 $result = $conn->query($sql);
 $rows = [];
@@ -33,7 +39,7 @@ while($row = mysqli_fetch_array($result)) {
       <img src="<?= $post['post_image_url'] ?>">
     </div>
     <div class="col-md-8">
-       <a href="Vitamins and Minerals 1.html"><h1><?= $post['title']; ?></h1></a>
+         <h1><a href="show.php?id=<?= $post['id'] ?>"><?= $post['title']; ?></a></h1>
       <p><?= mb_strimwidth($post['contents'], 0, 400, '...'); ?></p>
     </div>
   </div>
@@ -43,17 +49,17 @@ while($row = mysqli_fetch_array($result)) {
 <nav aria-label="Page navigation" ><div class="text-center">
   <ul class="pagination" >
     <li>
-      <a href="lifestyle.html" aria-label="Previous">
+      <a href="lifestyle.php" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li><a href="medical.html">1</a></li>
-    <li><a href="lifestyle.html">2</a></li>
+    <li><a href="medical.php">1</a></li>
+    <li><a href="lifestyle.php">2</a></li>
     <li><a href="#">3</a></li>
-    <li><a href="beautynhealth.html">4</a></li>
+    <li><a href="beautynhealth.php">4</a></li>
 
     <li>
-      <a href="beautynhealth.html" aria-label="Next">
+      <a href="beautynhealth.php" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>

@@ -1,10 +1,16 @@
 <?php include '_db_connect.php' ?>
 
 <?php
+$limit = isset($_GET['limit']) ? $_GET['limit'] : 6;
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$offset = ($page - 1);
+
 if(isset($_GET['query'])) {
-  $sql = "SELECT * FROM posts WHERE category = 'beauty-and-health' AND (title LIKE '%{$_GET['query']}%' OR contents LIKE '%{$_GET['query']}%')";
+  $page_count_sql = "SELECT * FROM posts WHERE category = 'beauty-and-health' AND (title LIKE '%{$_GET['query']}%' OR contents LIKE '%{$_GET['query']}%')";
+  $sql = "SELECT * FROM posts WHERE category = 'beauty-and-health' AND (title LIKE '%{$_GET['query']}%' OR contents LIKE '%{$_GET['query']}%') LIMIT {$limit} OFFSET {$offset}";
 } else {
-$sql = "SELECT * FROM posts WHERE category = 'beauty-and-health'";
+    $page_count_sql = "SELECT * FROM posts WHERE category = 'beauty-and-health';
+$sql = "SELECT * FROM posts WHERE category = 'beauty-and-health' LIMIT {$limit} OFFSET {$offset}";
 }
 $result = $conn->query($sql);
 $rows = [];
@@ -33,7 +39,7 @@ $post_groups = array_chunk($rows, 3);
       <?php foreach($posts as $post) : ?>
       <div class="col-md-4">
         <img src="<?= $post['post_image_url'] ?>" height="241"width="360">
-        <a href="skin care 1.html">  <h1><?= $post['title']; ?></h1></a>
+        <h1><a href="show.php?id=<?= $post['id'] ?>"><?= $post['title']; ?></a></h1>
         <p><?= mb_strimwidth($post['contents'], 0, 400, '...'); ?></p>
       </div>
     <?php endforeach; ?>
@@ -43,13 +49,13 @@ $post_groups = array_chunk($rows, 3);
 <nav aria-label="Page navigation" ><div class="text-center">
   <ul class="pagination" >
     <li>
-      <a href="foodnnutrition.html" aria-label="Previous">
+      <a href="foodnnutrition.php" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li><a href="medical.html">1</a></li>
-    <li><a href="lifestyle.html">2</a></li>
-    <li><a href="foodnnutrition.html">3</a></li>
+    <li><a href="medical.php">1</a></li>
+    <li><a href="lifestyle.php">2</a></li>
+    <li><a href="foodnnutrition.php">3</a></li>
     <li><a href="#">4</a></li>
 
 
