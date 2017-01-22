@@ -11,7 +11,7 @@
 </head>
 <body>
 <!-- navbar -->
-<?= include '_navbar.php' ?>
+<? echo $navbar ?>
 <!-- end navbar -->
           <!-- content -->
           <div class="container">

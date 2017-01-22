@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<?= include '_navbar.php' ?>
+  <? echo $navbar ?>
 <!-- slider -->
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->

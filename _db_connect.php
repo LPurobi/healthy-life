@@ -14,4 +14,5 @@
 
   $sql = "SELECT * FROM posts";
   $result = $conn->query($sql);
+  $navbar = include_once '_navbar.php';
 ?>

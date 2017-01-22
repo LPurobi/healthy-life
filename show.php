@@ -23,7 +23,7 @@ $row = $result->fetch_assoc();
 </head>
 <body>
 <!-- navbar -->
-<?= include '_navbar.php' ?>
+<? echo $navbar ?>
 <!-- content -->
 <div class="container">
   <div class="row">

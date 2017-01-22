@@ -4,11 +4,24 @@
 $limit = isset($_GET['limit']) ? $_GET['limit'] : 6;
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $offset = ($page - 1);
+$group_sql = "SELECT count(id) as total, YEAR(published_at) as year, MONTHNAME(published_at) as
+month FROM `posts` WHERE category = 'lifestyle'
+GROUP BY year, month ORDER BY year DESC, month DESC";
+
+$recent_data = $conn->query($group_sql);
+$histories = [];
+
+while($history = mysqli_fetch_array($recent_data)) {
+    $histories[] = $history;
+}
 
 if(isset($_GET['query'])) {
     $page_count_sql = "SELECT * FROM posts WHERE category = 'lifestyle' AND (title LIKE '%{$_GET['query']}%' OR contents LIKE '%{$_GET['query']}%')";
   $sql = "SELECT * FROM posts WHERE category = 'lifestyle' AND (title LIKE '%{$_GET['query']}%' OR contents LIKE '%{$_GET['query']}%') LIMIT {$limit} OFFSET {$offset}";
-} else {
+} if (isset($_GET['month']) && isset($_GET['year'])) {
+  $page_count_sql = "SELECT * FROM posts WHERE category = 'lifestyle'";
+  $sql = "SELECT * FROM posts WHERE category = 'lifestyle' AND year(published_at) = '{$_GET['year']}' AND MONTHNAME(published_at) = '{$_GET['month']}' LIMIT {$limit} OFFSET {$offset}";
+}else {
     $page_count_sql = "SELECT * FROM posts WHERE category = 'lifestyle'";
     $sql = "SELECT * FROM posts WHERE category = 'lifestyle' LIMIT {$limit} OFFSET {$offset}";
 }
@@ -32,18 +45,33 @@ $post_groups = array_chunk($rows, 2);
 <body>
   <!-- navbar -->
 
-  <?= include '_navbar.php' ?>
+  <? echo $navbar ?>
   <!-- end navbar -->
   <!-- content -->
   <div class="container">
     <div class="row">
+      <div class="col-md-3">
+         <div class="sideBar">
+            <h1>Recent Post</h1>
+            <ul>
+            <?php foreach($histories as $history) : ?>
+              <li><a href="?month=<?= $history['month'] ?>&year=<?= $history['year'] ?>"><?= "{$history['month']} {$history['year']} ({$history['total']})"?></a></li>
+            <?php endforeach; ?>
+            </ul>
+         </div>
+       </div>
+       <div class="col-md-9">
+         <?php if (isset($_GET['month']) && isset($_GET['year'])) : ?>
+           <h2>Showing post from: <?= $_GET['month'] ?>/<?= $_GET['year'] ?></h2>
+         <?php endif; ?>
       <?php foreach($post_groups as $posts) : ?>
+        <div class="row">
         <?php foreach($posts as $post) : ?>
           <div class="col-md-6">
             <img src="<?= $post['post_image_url'] ?>" height="341" width="555">
-            <h1><a href="show.php?id=<?= $post['id'] ?>"><?= $post['title']; ?></a></h1>
-            <p><?= mb_strimwidth($post['contents'], 0, 400, '...'); ?></p>
-          </div>
+                  <h1><a href="show.php?id=<?= $post['id'] ?>"><?= $post['title']; ?></a></h1>
+                  <p><?= mb_strimwidth($post['contents'], 0, 400, '...'); ?></p>
+                </div>
         <?php endforeach; ?>
       <?php endforeach; ?>
     </div>
