@@ -144,14 +144,7 @@ $post_groups = array_chunk($rows, 4);
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h3>Get a daily health tip</h3>
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="exampleInputEmail2">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
-                </div>
-                <button type="submit" class="btn btn-default">Signup</button>
-            </form>
+          
         </div>
         <div class="col-md-6">
             <h3>Stay in touch</h3>

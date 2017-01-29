@@ -1,5 +1,8 @@
 <?php include '_db_connect.php' ?>
 <?php
+if($_SESSION["admin"] != "admin") {
+  header("Location: home.php?error=Failed");
+}
 $sql = "SELECT * FROM posts WHERE approved = 0";
 $result = $conn->query($sql);
 $data = [];
@@ -33,7 +36,7 @@ if ($result->num_rows > 0) {
 </head>
 <body>
 	<!-- navbar -->
-<?= include '_navbar.php'; ?>
+<? echo $navbar ?>
 	<!-- end navbar -->
 <div id="main_container">
     <div class="right_content">

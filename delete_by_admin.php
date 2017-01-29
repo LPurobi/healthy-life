@@ -3,10 +3,16 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "health";
+session_start();
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
+
+if($_SESSION["admin"] != "admin") {
+  header("Location: home.php?error=Failed");
+}
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }

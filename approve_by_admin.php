@@ -3,7 +3,11 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "health";
+session_start();
 
+if($_SESSION["admin"] != "admin") {
+  header("Location: home.php?error=Failed");
+}
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection

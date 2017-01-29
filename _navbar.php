@@ -1,4 +1,9 @@
 <!-- navbar -->
+
+<?php
+  session_start();
+?>
+
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -21,13 +26,19 @@
                 <li><a href="foodnnutrition.php">Food & Nutrition</a></li>
                 <li><a href="beautynhealth.php">Beauty & Health</a></li>
                 <li><a href="submit_post.php">Submit post</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="admin_login.php">Log in</a></li>
-                        <li><a href="admin_content_selection.php">Content</a></li>
-                    </ul>
+                <?php if($_SESSION && $_SESSION["admin"]) : ?>
+                <li>
+                  <a href="admin_content_selection.php">Admin</span></a>
                 </li>
+
+                <li>
+                    <a href="logout.php">Log out</span></a>
+                </li>
+              <?php else:  ?>
+              <li>
+                <a href="admin_login.php">Log In</span></a>
+              </li>
+            <?php endif; ?>
                     <form class="navbar-form navbar-left" method="get">
                         <div class="form-group">
                             <input type="text" name='query' value="<?= isset($_GET['query']) ? $_GET['query'] : '' ?>" class="form-control" placeholder="Search">

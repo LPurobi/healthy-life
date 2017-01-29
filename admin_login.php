@@ -11,7 +11,7 @@
 </head>
 <body>
 <!-- navbar -->
-<?= include '_navbar.php' ?>
+<? echo $navbar ?>
 <!-- end navbar -->
           <!-- content -->
 <div class="login_form" align="middle" style="background-image: url('http://cdn.mysitemyway.com/etc-mysitemyway/backgrounds/legacy-previews/backgrounds/sequenced-circles/sequenced-circles-003465-light-sky-blue.jpg'); >
@@ -20,16 +20,16 @@
 
          <a href="#"  class="forgot_pass" align="left">Forgot password</a>
 
-         <form action="" method="post" class="niceform">
+         <form action="submit_login.php" method="post" class="niceform">
 
                 <fieldset>
                     <dl>
-                        <dt><label for="email">Username:</label></dt>
-                        <dd><input type="text" name="" id="" size="54" /></dd>
+                        <dt><label for="username">Username:</label></dt>
+                        <dd><input type="text" name="username" id="" size="54" /></dd>
                     </dl>
                     <dl>
                         <dt><label for="password">Password:</label></dt>
-                        <dd><input type="text" name="" id="" size="54" /></dd>
+                        <dd><input type="password" name="password" id="" size="54" /></dd>
                     </dl>
 
                     <dl>
